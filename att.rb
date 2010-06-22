@@ -17,12 +17,12 @@ class OrderStatus
   
   def nil?
     err = self.response.scan("We're sorry, but the information you entered was not").to_s
-    err.empty? == true ? false : true
+    !err.empty?
   end
   
   def canceled?
     cancel = self.response.scan("Canceled")[0].to_s
-    cancel.empty? == true ? false : true
+    !cancel.empty?
   end
   
   def name
